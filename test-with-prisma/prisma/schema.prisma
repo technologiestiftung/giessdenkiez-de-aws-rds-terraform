@@ -1,0 +1,154 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model radolan_data {
+  geom_id     Int?
+  id          Int       @default(autoincrement()) @id
+  measured_at DateTime?
+  value       Int?
+
+  @@index([geom_id], name: "radolan_data_geom_id")
+  @@index([measured_at], name: "radolan_data_measured_at")
+}
+
+model radolan_geometry {
+  // This type is currently not supported.
+  // centroid geometry?
+  // This type is currently not supported.
+  // geometry geometry?
+  id          Int       @default(autoincrement()) @id
+}
+
+model radolan_harvester {
+  collection_date DateTime?
+  end_date        DateTime?
+  id              Int       @default(autoincrement()) @id
+  start_date      DateTime?
+}
+
+model radolan_temp {
+  // This type is currently not supported.
+  // geometry geometry?
+  id          Int       @default(autoincrement()) @id
+  measured_at DateTime?
+  value       Int?
+}
+
+model spatial_ref_sys {
+  auth_name String?
+  auth_srid Int?
+  proj4text String?
+  srid      Int     @id
+  srtext    String?
+}
+
+model trees {
+  adopted        String?
+  artBot         String?
+  artdtsch       String?
+  baumhoehe      String?
+  bezirk         String?
+  eigentuemer    String?
+  gattung        String?
+  gattungdeutsch String?
+  // This type is currently not supported.
+  // geom        geometry?
+  hausnr         String?
+  id             String    @id
+  kronedurch     String?
+  lat            String?
+  lng            String?
+  pflanzjahr     String?
+  radolan_days   Int[]
+  radolan_sum    Int?
+  stammumfg      String?
+  standalter     String?
+  strname        String?
+  type           String?
+  watered        String?
+  zusatz         String?
+
+  @@index([pflanzjahr], name: "pflanzjahr_index")
+  @@index([id], name: "trees_id_idx")
+}
+
+model trees_adopted {
+  id      Int     @default(autoincrement()) @id
+  tree_id String?
+  uuid    String?
+
+  @@index([tree_id], name: "trees_adopted_tree_id")
+  @@index([uuid], name: "trees_adopted_uuid")
+}
+
+model trees_extention {
+  id_        String  @id
+  KENNZEICH  String?
+  NAMENR     String?
+  STANDORTNR String?
+}
+
+model trees_temp {
+  adopted        String?
+  artBot         String?
+  artdtsch       String?
+  baumhoehe      String?
+  bezirk         String?
+  eigentuemer    String?
+  gattung        String?
+  gattungdeutsch String?
+  // This type is currently not supported.
+  // geom        geometry?
+  hausnr         String?
+  id             String    @id
+  kronedurch     String?
+  lat            String?
+  lng            String?
+  pflanzjahr     String?
+  radolan_days   Int[]
+  radolan_sum    Int?
+  stammumfg      String?
+  standalter     String?
+  strname        String?
+  type           String?
+  watered        String?
+  zusatz         String?
+
+  @@index([pflanzjahr], name: "pflanzjahr_temp_index")
+  @@index([id], name: "trees_temp_id_idx")
+}
+
+// The underlying table does not contain a unique identifier and can therefore currently not be handled.
+// model trees_watered {
+  // amount    String?
+  // time      String
+  // timestamp DateTime?
+  // tree_id   String
+  // username  String?
+  // uuid      String?
+
+  // @@index([timestamp], name: "trees_watered_timestamp")
+  // @@index([tree_id], name: "trees_watered_tree_id")
+  // @@index([uuid], name: "trees_watered_uuid")
+// }
+
+// The underlying table does not contain a unique identifier and can therefore currently not be handled.
+// model trees_watered_batch {
+  // amount    String?
+  // time      String?
+  // timestamp DateTime?
+  // tree_id   String?
+  // username  String?
+  // uuid      String?
+// }
+
+model users {
+  email String? @unique
+  uuid  String?
+}
