@@ -8,7 +8,7 @@ provider "aws" {
 ##############################################################
 data "aws_vpc" "default" {
   # default = true
-  id = "${var.vpc_id}"
+  id = var.vpc_id
 }
 
 data "aws_subnet_ids" "all" {
@@ -88,7 +88,7 @@ module "db" {
     Environment = "dev"
   }
 
-  publicly_accessible             = true
+  publicly_accessible = true
 
   enabled_cloudwatch_logs_exports = ["postgresql", "upgrade"]
 
