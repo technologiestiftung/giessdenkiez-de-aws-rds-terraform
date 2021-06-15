@@ -22,3 +22,7 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 README.md
+tf-rds-v*
+LICENSE
+Dockerfile
+.env.sample
