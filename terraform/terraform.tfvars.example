@@ -1,7 +1,0 @@
-pg_name = "trees"
-pg_user = "fangorn"
-pg_password =  "ent"
-vpc_id = "vpc-123"
-profile = "your-profile"
-pg_identifier = "giessdenkiez"
-env_suffix = "dev"
