@@ -1,0 +1,4 @@
+dbname = "trees"
+username = "fangorn"
+password = "ent"
+vpc_id = "vpc-0122xxxxxxxxxxxxxxxx"
