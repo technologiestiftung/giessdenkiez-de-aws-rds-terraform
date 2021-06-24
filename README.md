@@ -44,24 +44,25 @@ docker compose up -d
 docker ps 
 # get your container id
 docker exec -it [CONTAINERIDHERE] /bin/zsh
+#
+#
+# ----------------------------------------
+# this is in a docker container session
 cd scripts
 # needs the following environment variables set
+# they are in .env and loaded with docker compose
 # SOURCE_HOST
 # SOURCE_USER
 # SOURCE_DBNAME
 
-export SOURCE_HOST=xxxxxxxxxxxxxx
-export SOURCE_USER=xxxxxxxxxxxxxx
-export SOURCE_DBNAME=xxxxxxxxxxxxxx
 # will prompt for your source db password
 ./backup.sh
 # needs the following environment variables set
+# they are in .env and loaded with docker compose
 # TARGET_HOST
 # TARGET_USER
 # TARGET_DBNAME
-export TARGET_HOST=xxxxxxxxxxxxxx
-export TARGET_USER=xxxxxxxxxxxxxx
-export TARGET_DBNAME=xxxxxxxxxxxxxx
+
 # will prompt for your target db pw
 ./restore.sh
 # you might need to fiddle with postgis
