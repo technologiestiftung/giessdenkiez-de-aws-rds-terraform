@@ -1,4 +1,4 @@
-FROM postgres:11.10
+FROM postgres:11.13
 RUN apt-get update && apt-get install -y zsh vim wget git curl
 # terminal colors with xterm
 ENV TERM xterm
