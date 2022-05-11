@@ -1,9 +1,8 @@
-![](https://img.shields.io/badge/Build%20with%20%E2%9D%A4%EF%B8%8F-at%20Technologiesitftung%20Berlin-blue)
+![](https://img.shields.io/badge/Built%20with%20%E2%9D%A4%EF%B8%8F-at%20Technologiestiftung%20Berlin-blue)
 
 # giessdenkiez.de DB provisioning
 
 These are some scripts and tools to setup a Postgres DB and provision the needed tables for the [giessdenkiez.de](https://github.com/technologiestiftung/giessdenkiez-de/) project.
-
 
 ## Prerequisites
 
@@ -23,7 +22,9 @@ terraform login
 terraform init
 mv terraform.auto.tfvars.example terraform.auto.tfvars
 ```
+
 Fill in all the variables in `terraform.auto.tfvars`.
+
 ## Usage
 
 ```bash
@@ -35,7 +36,7 @@ Now connect to your RDS DB and install Postgis using the script `scripts/enable-
 
 ## Dump and Restore
 
-To move your data from an existing DB to a new one do the following. 
+To move your data from an existing DB to a new one do the following.
 
 Hint!: This workflow uses docker to start a container that has `psql`, `pg_dump` and `pg_restore` installed. If you have a local install of these tools you should be able to skip the docker part. Be aware that it is only tested with the specific version of the tools that come with the postgres version used in the `Dockerfile`. (`FROM postgres:11.10`)
 
@@ -43,7 +44,7 @@ Hint!: This workflow uses docker to start a container that has `psql`, `pg_dump`
 mv .env.sample .env
 # edit the variables
 docker compose up -d
-docker ps 
+docker ps
 # get your container id
 docker exec -it [CONTAINERIDHERE] /bin/zsh
 #
