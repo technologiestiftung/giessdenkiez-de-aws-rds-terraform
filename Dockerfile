@@ -1,4 +1,4 @@
-FROM postgres:13.4
+FROM postgres:13.7
 RUN apt-get update && apt-get install -y zsh vim wget git curl
 # terminal colors with xterm
 ENV TERM xterm
