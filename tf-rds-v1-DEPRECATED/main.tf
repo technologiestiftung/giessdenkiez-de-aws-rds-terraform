@@ -54,7 +54,7 @@ resource "aws_security_group" "default" {
 #####
 module "db" {
   source  = "terraform-aws-modules/rds/aws"
-  version = "~> 2.0"
+  version = "~> 6.0"
 
   identifier = "giessdenkiez-${var.env_suffix}"
 
